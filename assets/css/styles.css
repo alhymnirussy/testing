@@ -1,0 +1,382 @@
+/* ==================== GLOBAL STYLES ==================== */
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* Variables CSS */
+:root {
+    /* Colors */
+    --first-color: hsl(30, 16%, 50%);
+    --text-color: #fff;
+    --text-color-black: hsl(30, 8%, 15%);
+    --body-color: hsl(30, 100%, 98%);
+    /* Font and Typography */
+    --body-font: "Edu NSW ACT Foundation", cursive;
+    --h3-font-size: 1.4rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: 1rem;
+}
+/* Responsive Typography */
+@media screen and (min-width: 1024px) {
+    :root {
+      --h3-font-size: 1.6rem;
+      --small-font-size: 1rem;
+      --smaller-font-size: .875rem;
+    }
+}
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: var(--body-font);
+    /* background-color: var(--body-color); */ /* Dihapus karena ada background-blur */
+    overflow: hidden;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+/* ==================== BACKGROUND & OVERLAY ==================== */
+.background-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/background3.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(5px);
+    z-index: -1;
+}
+/* ==================== SNOWFLAKE ANIMATION ==================== */
+.snowflake {
+    position: fixed;
+    top: -10px;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    z-index: 1000;
+    user-select: none;
+    pointer-events: none;
+    animation: fall linear infinite;
+}
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+/* ==================== GALLERY STYLES ==================== */
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.gallery {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+.gallery__card {
+    position: relative;
+    width: 258px;
+    height: 288px;
+    border-radius: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    border: 5px solid white;
+    box-sizing: border-box;
+}
+.gallery__img,
+.gallery__card::after,
+.gallery__data {
+    position: absolute;
+}
+.gallery__img {
+    inset: 0;
+    margin: auto;
+    transition: transform .3s;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.gallery__card::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg,
+                    hsla(0, 0%, 100%, 0) 32%,
+                    hsla(0, 0%, 0%, .3) 100%);
+    top: 0;
+    z-index: 1;
+}
+.gallery__data {
+    bottom: 1.5rem;
+    left: 1.75rem;
+    z-index: 10;
+}
+.gallery__title,
+.gallery__subtitle {
+    color: var(--text-color);
+    font-weight: 500;
+}
+.gallery__title {
+    font-size: var(--h3-font-size);
+}
+.gallery__subtitle {
+    font-size: var(--smaller-font-size);
+}
+.gallery__overflow {
+    position: relative;
+}
+.gallery__thumbnail {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform .3s;
+}
+.gallery__thumbnail-img {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* ==================== SWIPER STYLES ==================== */
+/* Swiper class */
+.gallery-cards,
+.gallery-thumbs {
+    width: 260px;
+}
+.gallery-cards:hover .gallery__img {
+    transform: scale(1.1);
+}
+.gallery .swiper-wrapper {
+    padding: 2.5rem 0;
+}
+.gallery-thumbs {
+    height: 132px;
+}
+/* Active thumbnail */
+.swiper-slide-active .gallery__thumbnail {
+    transform: translateY(-1.25rem) scale(1.2);
+}
+/* Rotate thumbnail */
+.swiper-slide-next .gallery__thumbnail {
+    transform: rotate(15deg);
+}
+.swiper-slide-prev .gallery__thumbnail {
+    transform: rotate(-15deg);
+}
+/* Sliding numbers */
+.swiper-pagination-fraction {
+    font-size: var(--small-font-size);
+    letter-spacing: -1px;
+    font-weight: 500;
+    color: var(--text-color);
+    bottom: 0;
+}
+/* Arrow buttons */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    content: '';
+}
+.swiper-button-next,
+.swiper-button-prev {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    top: 5.5rem;
+}
+.swiper-button-next {
+    right: -1.5rem;
+    transform: rotate(15deg);
+}
+.swiper-button-prev {
+    left: -1.5rem;
+    transform: rotate(-15deg);
+}
+/* Other swiper settings */
+.gallery-cards::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.swiper-horizontal.swiper-css-mode > .swiper-wrapper {
+    scroll-snap-type: initial;
+}
+/* ==================== MUSIC PLAYER STYLES ==================== */
+.music-player {
+    width: 90%;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 1.5rem;
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin-top: -10px;
+}
+.music-player__container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.music-player__img {
+    width: 50px;
+    height: 50px;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+.music-player__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.music-player__info {
+    flex-grow: 1;
+}
+.music-player__title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+.music-player__artist {
+    font-size: 0.8rem;
+    color: var(--first-color);
+}
+.music-player__buttons {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+.music-player__buttons i{
+    cursor: pointer;
+}
+.play-pause {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.play-pause i {
+    color: var(--text-color-black);
+    font-size: 1.4rem;
+}
+.progress-area {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    margin-top: 10px;
+}
+.progress-bar {
+    position: relative;
+    width: 100%;
+    height: inherit;
+}
+.progress-bar .current-time,
+.progress-bar .max-time {
+    position: absolute;
+    color: var(--text-color);
+    font-size: .7rem;
+    top: -13px;
+    margin-top: -1px;
+}
+.progress-bar .max-time {
+    right: 0;
+}
+.progress-area input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 100%;
+    background: none;
+    pointer-events: none;
+    
+}
+.progress-area input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 10px;
+    width: 10px;
+    background: var(--text-color);
+    border-radius: 50%;
+    pointer-events: auto;
+}
+.progress-area .music-bar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--text-color);
+    pointer-events: none;
+}
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .music-player {
+        bottom: 2rem;
+        width: 90%;
+        max-width: 360px;
+    }
+    .music-player__container {
+      gap: 0.5rem;
+    }
+    .music-player__img {
+        width: 70px;
+        height: 70px;
+    }
+    .music-player__title {
+        font-size: 0.9rem;
+    }
+    .music-player__artist {
+        font-size: 0.7rem;
+    }
+    .music-player__buttons{
+        font-size: 1.2rem;
+    }
+}
+/* ==================== BREAKPOINTS ==================== */
+/* For small devices */
+@media screen and (max-width: 320px) {
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none;
+    }
+}
+/* For medium devices */
+@media screen and (min-width: 1024px) {
+    .gallery__card {
+        width: 240px;
+        height: 280px;
+    }
+    .gallery__thumbnail {
+        width: 65px;
+        height: 65px;
+    }
+    .gallery-cards,
+    .gallery-thumbs {
+        width: 320px;
+    }
+}

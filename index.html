@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <!--=============== MATERIAL ICONS ===============-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/music-player.css">
+    <title>Gallery & Music Player</title>
+</head>
+<body>
+    <div class="background-blur"></div>
+    <div class="gallery-container">
+        <div class="gallery">
+            <!-- =============== SWIPER GALLERY THUMBNAIL =============== -->
+            <div class="gallery__overflow">
+                <div class="swiper gallery-thumbs">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="gallery__thumbnail">
+                                <img src="assets/img/example1.jpg" alt="image thumbnail" class="gallery__thumbnail-img">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gallery__thumbnail">
+                                <img src="assets/img/example2.jpg" alt="image thumbnail" class="gallery__thumbnail-img">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gallery__thumbnail">
+                                <img src="assets/img/example3.jpg" alt="image thumbnail" class="gallery__thumbnail-img">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gallery__thumbnail">
+                                <img src="assets/img/example4.jpg" alt="image thumbnail" class="gallery__thumbnail-img">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gallery__thumbnail">
+                                <img src="assets/img/example5.jpeg" alt="image thumbnail" class="gallery__thumbnail-img">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gallery__thumbnail">
+                                <img src="assets/img/example6.jpg" alt="image thumbnail" class="gallery__thumbnail-img">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Swiper pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+                <!-- Swiper arrows -->
+                <div class="swiper-button-next">
+                    <i class="ri-arrow-right-line"></i>
+                </div>
+                <div class="swiper-button-prev">
+                    <i class="ri-arrow-left-line"></i>
+                </div>
+            </div>
+            <!-- =============== SWIPER GALLERY CARDS =============== -->
+            <div class="swiper gallery-cards">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <article class="gallery__card">
+                            <img src="assets/img/example1.jpg" alt="image gallery" class="gallery__img">
+                            <div class="gallery__data">
+                                <h3 class="gallery__title">I ❤️ You</h3>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="gallery__card">
+                            <img src="assets/img/example2.jpg" alt="image gallery" class="gallery__img">
+                            <div class="gallery__data">
+                                <h3 class="gallery__title">I ❤️ You</h3>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="gallery__card">
+                            <img src="assets/img/example3.jpg" alt="image gallery" class="gallery__img">
+                            <div class="gallery__data">
+                                <h3 class="gallery__title">I ❤️ You</h3>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="gallery__card">
+                            <img src="assets/img/example4.jpg" alt="image gallery" class="gallery__img">
+                            <div class="gallery__data">
+                                <h3 class="gallery__title">I ❤️ You</h3>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="gallery__card">
+                            <img src="assets/img/example5.jpeg" alt="image gallery" class="gallery__img">
+                            <div class="gallery__data">
+                                <h3 class="gallery__title">I ❤️ You</h3>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="gallery__card">
+                            <img src="assets/img/example6.jpg" alt="image gallery" class="gallery__img">
+                            <div class="gallery__data">
+                                <h3 class="gallery__title">I ❤️ You</h3>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--==================== MUSIC PLAYER ====================-->
+        <div class="music-player">
+            <div class="music-player__container">
+                <div class="music-player__img">
+                    <img src="assets/img/background.jpg" id="music-image">
+                </div>
+                <div class="music-player__info">
+                    <h3 class="music-player__title" id="music-title">Track Title</h3>
+                    <span class="music-player__artist" id="music-artist">Artist Name</span>
+                    <audio id="audio" src="assets/music/music1.mp3"></audio>
+                    <div class="progress-area">
+                        <div class="progress-bar">
+                            <span class="current-time">0:00</span>
+                            <input type="range" min="0" value="0" step="1" class="music-bar">
+                            <span class="max-time">0:00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="music-player__buttons">
+                    <i class="ri-skip-back-fill" id="prev"></i>
+                    <div class="play-pause">
+                        <i class="ri-play-fill" id="masterPlay"></i>
+                    </div>
+                    <i class="ri-skip-forward-fill" id="next"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=============== SWIPER JS ===============-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/music-player.js"></script>
+</body>
+</html>
